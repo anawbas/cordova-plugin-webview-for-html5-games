@@ -1,0 +1,17 @@
+{
+  "name": "cordova-plugin-webview-for-html5-games",
+  "version": "1.0.0",
+  "description": "Embedding a custom webview into the app to enhance the gaming experience of HTML5 games and the overall stability of the app.",
+  "cordova": {
+    "id": "cordova-plugin-webview-for-html5-games",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "author": "luca.bertolasi@gmail.com",
+  "license": "MIT"
+}

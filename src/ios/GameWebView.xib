@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14092" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14081.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GameWebViewBrowser" customModule="Goldbet_Casino" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <webView contentMode="scaleToFill" scalesPageToFit="YES" mediaPlaybackRequiresUserAction="NO" mediaPlaybackAllowsAirPlay="NO" keyboardDisplayRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jY0-mT-ncN">
+                    <rect key="frame" x="0.0" y="84" width="375" height="583"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <dataDetectorType key="dataDetectorTypes"/>
+                </webView>
+                <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uW-5j-gYv">
+                    <rect key="frame" x="0.0" y="40" width="375" height="44"/>
+                    <items>
+                        <navigationItem id="UbK-n5-uTr">
+                            <barButtonItem key="leftBarButtonItem" title="Home" style="plain" id="0bJ-YW-74D">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="close:" destination="iN0-l3-epB" id="SLx-OM-o8u"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jY0-mT-ncN" secondAttribute="trailing" id="2cb-YD-YnQ"/>
+                <constraint firstItem="4uW-5j-gYv" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="DXf-Uf-u3j"/>
+                <constraint firstItem="jY0-mT-ncN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="X6O-Eq-KPS"/>
+                <constraint firstItem="4uW-5j-gYv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Y3t-Z2-x9O"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jY0-mT-ncN" secondAttribute="bottom" id="eOm-Wh-m9c"/>
+                <constraint firstItem="jY0-mT-ncN" firstAttribute="top" secondItem="4uW-5j-gYv" secondAttribute="bottom" id="nS8-Io-ksu"/>
+                <constraint firstItem="4uW-5j-gYv" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="nfI-hU-BqE"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="webView" destination="jY0-mT-ncN" id="qOp-WG-mgg"/>
+            </connections>
+        </view>
+    </objects>
+</document>

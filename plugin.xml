@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-webview-for-html5-games" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>Cordova webview for html5 games</name>
+    <description>Cordova plugin to handle a webview for html5 games</description>
+    <license>MIT</license>
+    <keywords>cordova,plugin,webview,html5,games</keywords>
+
+    <js-module name="GameWebView" src="www/GameWebView.js">
+        <clobbers target="GameWebView" />
+    </js-module>
+
+    <platform name="ios">
+      <config-file target="config.xml" parent="/*">
+        <feature name="GameWebView">
+          <param name="ios-package" value="GameWebView" />
+        </feature>
+      </config-file>
+      <header-file src="src/ios/GameWebView-Bridging-Header.h" />
+      <source-file src="src/ios/GameWebView.swift" />
+      <source-file src="src/ios/GameWebView.xib" />
+      <dependency id="cordova-plugin-add-swift-support" version="1.7.1"/>
+    </platform>
+</plugin>
