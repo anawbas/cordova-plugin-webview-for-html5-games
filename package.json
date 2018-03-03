@@ -5,12 +5,18 @@
   "cordova": {
     "id": "cordova-plugin-webview-for-html5-games",
     "platforms": [
+      "android",
       "ios"
     ]
   },
   "keywords": [
+    "cordova-android",
+    "cordova-ios",
+    "cordova",
     "ecosystem:cordova",
-    "cordova-ios"
+    "games",
+    "html5",
+    "webview"
   ],
   "author": "luca.bertolasi@gmail.com",
   "license": "MIT"

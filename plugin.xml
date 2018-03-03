@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plugin id="cordova-plugin-webview-for-html5-games" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+
     <name>Cordova webview for html5 games</name>
     <description>Cordova plugin to handle a webview for html5 games</description>
     <license>MIT</license>
@@ -15,9 +16,23 @@
           <param name="ios-package" value="GameWebView" />
         </feature>
       </config-file>
+      <header-file src="src/ios/AppDelegate+gamewebview.h" />
       <header-file src="src/ios/GameWebView-Bridging-Header.h" />
+      <source-file src="src/ios/AppDelegate+gamewebview.m" />
       <source-file src="src/ios/GameWebView.swift" />
       <source-file src="src/ios/GameWebView.xib" />
       <dependency id="cordova-plugin-add-swift-support" version="1.7.1"/>
+    </platform>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="GameWebView">
+                <param name="android-package" value="it.plugin.gamewebview.GameWebView"/>
+            </feature>
+        </config-file>
+        <source-file target-dir="src/it/plugin/gamewebview" src="src/android/GameWebView.java" />
+        <source-file target-dir="src/it/plugin/gamewebview" src="src/android/GameWebViewDialog.java" />
+        <resource-file target="res/layout/gamewebview.xml" src="src/android/res/layout/gamewebview.xml" />
+        <resource-file target="res/values/dimen.xml" src="src/android/res/values/dimen.xml" />
     </platform>
 </plugin>

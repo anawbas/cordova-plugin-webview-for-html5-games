@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <dimen name="gamewebview_swipeup_delta_x">150dp</dimen>
+  <dimen name="gamewebview_swipeup_delta_y">150dp</dimen>
+</resources>
