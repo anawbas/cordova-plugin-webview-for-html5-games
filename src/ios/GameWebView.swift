@@ -43,7 +43,7 @@
         self.shouldStoreCookies()
 
         self.url = command.arguments[0] as? [String: String]
-        self.homeURL = self.url["home"] ?? ""
+        self.homeURL = "^https?://" + (self.url["home"] ?? "")
         self.autoLoginURL = self.url["autoLogin"] ?? ""
         self.gameURL = self.url["game"] ?? ""
 

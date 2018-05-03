@@ -28,6 +28,8 @@ public class GameWebViewDialog extends Dialog {
     public void close(boolean hasError) {
         if (!isShowing()) return;
 
+        gameWebView.gameDidClose = true;
+
         gameWebView.pluginResult = new PluginResult(hasError ? PluginResult.Status.ERROR : PluginResult.Status.OK);
         gameWebView.pluginResult.setKeepCallback(true);
 

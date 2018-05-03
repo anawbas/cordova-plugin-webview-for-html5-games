@@ -45,6 +45,7 @@ public class GameWebView extends CordovaPlugin {
     public CallbackContext callbackContext;
     public boolean userDidTapOnce = false;
     public boolean gameIsVisible = false;
+    public boolean gameDidClose = false;
 
     private JSONObject argsObj;
     private String homeURL;
@@ -108,9 +109,10 @@ public class GameWebView extends CordovaPlugin {
 
             userDidTapOnce = false;
             gameIsVisible = false;
+            gameDidClose = false;
 
             argsObj = args.getJSONObject(0);
-            homeURL = argsObj.optString("home");
+            homeURL = "^https?://" + argsObj.optString("home");
             autoLoginURL = argsObj.optString("autoLogin");
             gameURL = argsObj.optString("game");
 
@@ -258,10 +260,8 @@ public class GameWebView extends CordovaPlugin {
     }
 
     private boolean isHomeURL(String url) {
-        // >> does NOT work
-//        return Pattern.compile(homeURL, Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(url).lookingAt();
-
-        return url.contains(homeURL);
+       return Pattern.compile(homeURL, Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE).matcher(url).lookingAt();
+        // return url.contains(homeURL);
     }
 
     private boolean shouldPreventLoadingHomeURL(String url) {
@@ -298,7 +298,7 @@ public class GameWebView extends CordovaPlugin {
                 CookieSyncManager.getInstance().sync();
             }
 
-            if (!dialog.isShowing()) {
+            if (!dialog.isShowing() && !gameDidClose) {
                 if (isAutoLogin) {
                     isAutoLogin = false;
                     webView.loadUrl(gameURL);
@@ -324,8 +324,10 @@ public class GameWebView extends CordovaPlugin {
         @Override
         public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
             super.onReceivedError(view, request, error);
-            dialog.close(true);
+            dialog.close(false);
         }
+
+
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
